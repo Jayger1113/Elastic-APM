@@ -2,8 +2,10 @@
 
 how to start
 
-$cd elastic-apm
+$cd elastic-apm/docker
+
 $export TAG=7.2.0
+
 $docker-compose -f docker-compose.yml -d
 
 # Thouble-shooting
