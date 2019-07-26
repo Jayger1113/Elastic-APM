@@ -8,6 +8,18 @@ $export TAG=7.2.0
 
 $docker-compose -f docker-compose.yml -d
 
+# Nginx (proxy port from 80 to kibana 5601)
+
+$ sudo apt-get install nginx
+$ sudo vim /etc/nginx/sites-available/default
+$ copy & paste /docker/nginx.default
+$ sudo systemctl enable nginx
+$ sudo systemctl start nginx
+
+# To check if nginx is working
+$ sudo systemctl status nginx
+
+
 # Thouble-shooting
 
 elastic search
