@@ -1,12 +1,16 @@
 # Elastic-Kibana
 
-how to start
+# Server side
 
 $cd elastic-apm/docker
 
 $export TAG=7.2.0
 
 $docker-compose -f docker-compose.yml -d
+
+# Client side
+
+java -javaagent:apm-agent.jar -Delastic.apm.service_name=my-web-api -Delastic.apm.server_url=http://myapmServerurl:8200 -Delastic.apm.application_packages=com.example.apm -jar apm-0.0.1-SNAPSHOT.jar
 
 # Nginx (proxy port from 80 to kibana 5601)
 
