@@ -4,9 +4,9 @@
 
 $cd elastic-apm/docker
 
-$export TAG=7.2.0
+$export TAG=7.14.1
 
-$docker-compose -f docker-compose.yml -d
+$docker-compose up
 
 # Client side
 
