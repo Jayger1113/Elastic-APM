@@ -1,4 +1,9 @@
 version: '3'
+
+networks:
+  esapm:
+    driver: bridge
+
 services:
 
   elasticsearch:
@@ -10,17 +15,21 @@ services:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    networks:
+      - esapm
     ulimits:
       memlock:
         soft: -1
         hard: -1
     volumes:
-      - /home/ubuntu/elastic-apm/docker/es_data:/usr/share/elasticsearch/data
+      - /home/decs/workspace/dlink/Elastic-APM/elastic-apm/docker/es_data:/usr/share/elasticsearch/data
     ports: ['9200:9200']
 
   kibana:
     image: docker.elastic.co/kibana/kibana:${TAG}
     container_name: kibana
+    networks:
+      - esapm
     ports: ['5601:5601']
     depends_on: ['elasticsearch']
 
